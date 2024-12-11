@@ -1,3 +1,44 @@
 {
-    "enquiry":[]
+  "enquiry": [
+    {
+      "id": "2aa2",
+      "firstName": "Helin",
+      "lastName": "Taştan",
+      "email": "Helin@gmail.com",
+      "mobile": "05448767395",
+      "weight": 52,
+      "height": 1.68,
+      "bmi": 0.5668934240362813,
+      "bmiResult": "Underweight",
+      "gender": "Female",
+      "requireTrainer": "Yes",
+      "package": "Yearly",
+      "important": [
+        "ToxiC Fat reduction",
+        "Energy and Endurance"
+      ],
+      "haveGymBefore": "Yes",
+      "enquiryDate": "2024-12-23T21:00:00.000Z"
+    },
+    {
+      "id": "2f50",
+      "firstName": "Berfin",
+      "lastName": "Taştan",
+      "email": "Berfin@gmail.com",
+      "mobile": "05448767395",
+      "weight": 60,
+      "height": 1.67,
+      "bmi": 0.5737028936139698,
+      "bmiResult": "Underweight",
+      "gender": "Female",
+      "requireTrainer": "Yes",
+      "package": "Quarterly",
+      "important": [
+        "Building Lean Muscle",
+        "Sugar Craving Body"
+      ],
+      "haveGymBefore": "No",
+      "enquiryDate": "2024-12-22T21:00:00.000Z"
+    }
+  ]
 }

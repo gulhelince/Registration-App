@@ -18,14 +18,23 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateRegistrationComponent,
     RegistrationListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,17 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCardModule,
+    MatListModule,
+    MatChipsModule,
+
+    MatSnackBarModule,
+    MatDialogModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

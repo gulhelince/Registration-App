@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "modal-popup-angular-14": "^14.0.13",
+    "ng-confirm-box": "^0.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

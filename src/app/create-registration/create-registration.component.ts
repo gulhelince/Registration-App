@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../services/api.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-create-registration',
@@ -21,8 +25,10 @@ export class CreateRegistrationComponent implements OnInit {
   ]
 
   public registerForm!:FormGroup;
+  public userIdToUpdate!: number;
+  public isUpdateActive: boolean = false;
 
-  constructor(private fb:FormBuilder,private api:ApiService) { }
+  constructor(private fb:FormBuilder,private router:Router, private activatedRoute:ActivatedRoute, private api:ApiService,private snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -44,11 +50,40 @@ export class CreateRegistrationComponent implements OnInit {
 
     this.registerForm.controls['height'].valueChanges.subscribe(res=>{
       this.calculateBmi(res);
+    });
+
+    this.activatedRoute.params.subscribe(val=>{
+      this.userIdToUpdate = val['id'];
+      this.api.getRegisteredUserId(this.userIdToUpdate)
+      .subscribe(res=>{
+        this.isUpdateActive = true;
+        this.fillFormToUpdate(res);
+      })
     })
   }
 
   submit(){
     //console.log(this.registerForm.value)
+    this.api.postRegistration(this.registerForm.value)
+    .subscribe(res=>{
+      this.snackBar.open('Enquiry Added', 'Success', {
+        duration: 3000,
+        panelClass: ['snackbar-success'], // Özelleştirme için
+      });
+      this.registerForm.reset();
+    })
+  }
+
+  update(){
+    this.api.updateRegisterUser(this.registerForm.value, this.userIdToUpdate)
+    .subscribe(res=>{
+      this.snackBar.open('Enquiry Updated', 'Success', {
+        duration: 3000,
+        panelClass: ['snackbar-success'], // Özelleştirme için
+      });
+      this.registerForm.reset();
+      this.router.navigate(['list'])
+    })
   }
 
   calculateBmi(heightValue: number){
@@ -72,4 +107,25 @@ export class CreateRegistrationComponent implements OnInit {
           break;  
     }
   }
+
+  fillFormToUpdate(user: User) {
+    this.registerForm.setValue({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      mobile: user.mobile,
+      weight: user.weight,
+      height: user.height,
+      bmi: user.bmi,
+      bmiResult: user.bmiResult,
+      gender: user.gender,
+      requireTrainer: user.requireTrainer,
+      package: user.package,
+      important: user.important,
+      haveGymBefore: user.haveGymBefore,
+      enquiryDate: user.enquiryDate
+    })
+  }
+
+
 }

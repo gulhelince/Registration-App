@@ -1,0 +1,51 @@
+/* Dialog kutusu genel stil */
+.mat-dialog-container {
+    border-radius: 8px; /* Hafif yuvarlatılmış köşeler */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Yumuşak gölge efekti */
+    padding: 20px; /* İçerik çevresindeki boşluk */
+    background-color: #f9f9f9; /* Arka plan rengi */
+    color: #333; /* Yazı rengi */
+    font-family: 'Arial', sans-serif; /* Yazı tipi */
+  }
+  
+  /* Dialog başlık stili */
+  .mat-dialog-title {
+    font-size: 20px; /* Başlık boyutu */
+    font-weight: bold; /* Kalın yazı */
+    color: #444; /* Başlık rengi */
+    margin-bottom: 16px; /* Alt boşluk */
+  }
+  
+  /* Dialog içerik stili */
+  .mat-dialog-content {
+    font-size: 16px; /* İçerik yazı boyutu */
+    color: #666; /* İçerik yazı rengi */
+    margin-bottom: 20px; /* Alt boşluk */
+  }
+  
+  /* Dialog düğme stili */
+  .mat-dialog-actions button {
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  
+  .mat-dialog-actions button.mat-button {
+    color: #555;
+  }
+  
+  .mat-dialog-actions button.mat-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .mat-dialog-actions button.mat-warn {
+    background-color: #d32f2f;
+    color: #fff;
+  }
+  
+  .mat-dialog-actions button.mat-warn:hover {
+    background-color: #b71c1c;
+  }
+  
+  
